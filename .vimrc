@@ -17,6 +17,5 @@ autocmd BufRead *.c set colorcolumn=81
 autocmd BufRead *.[ch]pp set colorcolumn=121
 autocmd BufRead *.rs set colorcolumn=100
 
-autocmd BufRead *.rs compiler! cargo
-
+compiler! cargo
 set makeprg=make
