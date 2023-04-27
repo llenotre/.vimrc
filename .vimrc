@@ -6,9 +6,14 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'preservim/tagbar'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 nmap <F8> :TagbarToggle<CR>
+
+" Reducing delay for Ctrl + O
+set ttimeoutlen=10
 
 syntax on
 
