@@ -12,7 +12,7 @@ call plug#end()
 
 nmap <F8> :TagbarToggle<CR>
 
-" Reducing delay for Ctrl + O
+" Reducing delay for Shift + O
 set ttimeoutlen=10
 
 syntax on
