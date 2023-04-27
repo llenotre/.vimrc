@@ -1,21 +1,43 @@
+let g:rustfmt_autosave = 1
+
+call plug#begin()
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'preservim/tagbar'
+
+call plug#end()
+
+nmap <F8> :TagbarToggle<CR>
+
 syntax on
 
-set ruler
-set number
-
-set cursorline
-
-set hlsearch
-
 set autoindent
-set smartindent
+set cursorline
+set hlsearch
 set noexpandtab
-set tabstop=4
+set number
+set ruler
 set shiftwidth=4
+set smartindent
+set tabstop=4
 
 autocmd BufRead *.c set colorcolumn=81
-autocmd BufRead *.[ch]pp set colorcolumn=121
-autocmd BufRead *.rs set colorcolumn=100
 
-compiler! cargo
-set makeprg=make
+autocmd BufRead *.[ch]pp set colorcolumn=121
+
+autocmd BufRead *.rs set colorcolumn=100
+autocmd BufRead *.rs compiler! cargo
+" If working on a Rust project with a Makefile
+if filereadable("Makefile")
+	autocmd BufRead *.rs set makeprg=make
+endif
+
+autocmd BufRead *.yml SetYaml
+autocmd BufRead *.yaml SetYaml
+
+function SetYaml()
+	set expandtab
+	set tabstop=2
+	set shiftwidth=2
+endfunction
